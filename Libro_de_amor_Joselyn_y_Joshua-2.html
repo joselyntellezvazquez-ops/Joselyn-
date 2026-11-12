@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#351522">
+<title>Un libro para nosotros | Joselyn & Joshua</title>
+<style>
+:root{--wine:#531d32;--deep:#29121d;--rose:#c98e99;--blush:#f1d9d6;--paper:#fbf3e9;--ink:#432b32;--gold:#c5a16d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--deep);color:var(--ink);font-family:Georgia,serif}
+button,a{font:inherit}.intro{min-height:100svh;display:grid;place-items:center;padding:28px 18px;background:radial-gradient(ellipse at 50% 35%,#79394d 0,#401b2c 45%,#21101a 100%);color:var(--paper);text-align:center;overflow:hidden;position:relative}
+.intro:before,.intro:after{content:"✦";position:absolute;color:#e8c7c2;opacity:.5;font-size:22px;animation:twinkle 3s infinite alternate}.intro:before{top:12%;left:13%}.intro:after{bottom:15%;right:14%;animation-delay:1s}
+@keyframes twinkle{to{opacity:1;transform:scale(1.5) rotate(35deg)}}
+.intro-inner{max-width:520px;z-index:1}.smallcaps{font:10px Arial,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#e7c3c3}
+.intro h1{font-size:clamp(43px,10vw,72px);font-weight:400;line-height:1.02;margin:20px 0}.intro p{font-style:italic;line-height:1.8;color:#f1dcda}
+.envelope{margin:36px auto 24px;width:190px;height:130px;position:relative;cursor:pointer;filter:drop-shadow(0 15px 22px #16081188);transition:.3s}.envelope:hover{transform:translateY(-6px)}
+.env-body{position:absolute;inset:15px 0 0;background:#e8c9c3;border-radius:5px 5px 10px 10px;clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%)}
+.env-flap{position:absolute;top:15px;left:0;width:100%;height:90px;background:#f5ded7;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s;z-index:2}
+.seal{position:absolute;z-index:3;top:58px;left:calc(50% - 19px);width:38px;height:38px;border-radius:50%;background:#873b51;color:#f8e7df;display:grid;place-items:center;font-size:19px;box-shadow:0 2px 8px #35152255}
+.envelope.open .env-flap{transform:rotateX(180deg);opacity:.55}.envelope.open{transform:translateY(-8px) scale(.96)}
+.openhint{font:11px Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#f3d9d5}
+.enter{border:1px solid #d8b6a6;background:transparent;color:#fff;padding:13px 25px;border-radius:30px;cursor:pointer;margin-top:12px}
+#book{display:none;background:var(--paper);min-height:100vh}#book.visible{display:block;animation:fade .8s}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.topbar{position:sticky;top:0;z-index:10;background:#fbf3e9ed;backdrop-filter:blur(9px);border-bottom:1px solid #ead9ce;padding:10px 12px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:17px;color:var(--wine);font-style:italic}.menu{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}.menu a{font:9px Arial,sans-serif;letter-spacing:.07em;color:var(--wine);text-decoration:none;padding:7px}
+.hero{background:linear-gradient(140deg,#61243a,#351522);color:var(--paper);text-align:center;padding:80px 20px 75px;position:relative;overflow:hidden}
+.hero:after{content:"♡";position:absolute;font-size:230px;opacity:.06;right:2%;bottom:-85px}
+.hero h2{font-size:clamp(42px,9vw,74px);font-weight:400;margin:14px 0}.hero p{font-style:italic;line-height:1.8;max-width:560px;margin:auto;color:#f2dcda}
+.date{font:10px Arial,sans-serif;letter-spacing:.22em;margin-top:24px;color:#e7c5c0}
+section{padding:68px 20px;max-width:850px;margin:auto}.chapter{text-align:center;font:10px Arial,sans-serif;text-transform:uppercase;letter-spacing:.25em;color:#b27b85}
+h2.title{text-align:center;font-size:clamp(31px,7vw,45px);font-weight:400;color:var(--wine);margin:12px 0 24px}
+.prose{max-width:680px;margin:auto;font-size:17px;line-height:1.95;text-align:center}
+.ornament{text-align:center;color:var(--gold);letter-spacing:.5em;margin:25px}
+.timeline{max-width:650px;margin:30px auto;position:relative}.timeline:before{content:"";position:absolute;left:18px;top:10px;bottom:10px;width:1px;background:#d7b9ae}
+.event{position:relative;padding:0 0 26px 52px;line-height:1.7}.event:before{content:"♡";position:absolute;left:7px;top:0;color:#a65c70;background:var(--paper);font-size:22px}
+.counter{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;max-width:640px;margin:30px auto}.counter div{background:#5a2339;color:#fff;padding:18px 5px;text-align:center;border-radius:4px}.counter b{font-size:clamp(23px,6vw,35px);font-weight:400;display:block}.counter span{font:9px Arial,sans-serif;text-transform:uppercase;letter-spacing:.13em;color:#f1d8d6}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:650px;margin:28px auto}.polaroid{padding:9px 9px 17px;background:#fff;box-shadow:0 8px 22px #45233218;transform:rotate(-2deg)}.polaroid:nth-child(even){transform:rotate(2deg)}.polaroid img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#eadbd5}.polaroid p{text-align:center;margin:12px 0 0;font-style:italic;color:#6b3448;font-size:14px}
+.upload{text-align:center;font:12px Arial,sans-serif;color:#704052;margin:20px auto;display:block}
+.songcard{max-width:600px;margin:28px auto;background:#4d1d32;color:#fff;padding:30px 22px;text-align:center;border-radius:3px;box-shadow:8px 8px 0 #d8b7a9}.vinyl{width:100px;height:100px;border-radius:50%;margin:0 auto 18px;background:repeating-radial-gradient(circle,#24131d 0 3px,#49303b 4px 5px);display:grid;place-items:center;animation:spin 12s linear infinite}.vinyl span{background:#c88e98;border-radius:50%;width:32px;height:32px;display:grid;place-items:center;color:#4a1c30}@keyframes spin{to{transform:rotate(360deg)}}
+.songcard h3{font-size:28px;font-weight:400;margin:5px}.songcard p{line-height:1.7;color:#f0d9d9}.pill{display:inline-block;background:#f8e9e2;color:#5a2339;text-decoration:none;padding:12px 22px;border-radius:30px;font:11px Arial,sans-serif;letter-spacing:.08em}
+.giftarea{text-align:center;background:#f4e5df;padding:35px 18px;border:1px solid #e8d2ca;max-width:650px;margin:auto}.gift{font-size:100px;cursor:pointer;display:inline-block;transition:.3s;filter:drop-shadow(0 10px 8px #5a233933)}.gift:hover{transform:rotate(-7deg) scale(1.08)}.giftmsg{font-style:italic}
+.letter{display:none;max-width:540px;margin:22px auto 0;background:#fffaf4;padding:25px;text-align:left;line-height:1.9;border:1px solid #e6d2c5;box-shadow:0 8px 20px #4b263015}.letter.show{display:block;animation:fade .7s}.letter h3{text-align:center;color:var(--wine);font-size:27px;font-weight:400}
+.final{background:#351522;color:#f8eee5;text-align:center;padding:70px 22px}.final h2{font-size:clamp(34px,8vw,52px);font-weight:400}.final p{max-width:600px;margin:auto;line-height:1.9;font-style:italic}
+footer{text-align:center;padding:25px;background:#21101a;color:#d9b6b6;font:10px Arial,sans-serif;letter-spacing:.15em}
+@media(max-width:520px){.menu a{font-size:8px;padding:6px 4px}.topbar{align-items:flex-start}.counter{grid-template-columns:repeat(2,1fr)}section{padding:55px 17px}.gallery{gap:10px}}
+</style></head>
+<body>
+<div class="intro" id="intro">
+ <div class="intro-inner">
+  <div class="smallcaps">Un pequeño universo para dos</div>
+  <h1>Joselyn <span style="color:#e8bfc3">&</span><br>Joshua</h1>
+  <p>Hay historias que merecen guardarse en un lugar especial. Esta es la nuestra.</p>
+  <div class="envelope" id="envelope" onclick="revealBook()" role="button" aria-label="Abrir sobre">
+   <div class="env-body"></div><div class="env-flap"></div><div class="seal">J♡J</div>
+  </div>
+  <div class="openhint">Toca el sobre para abrir tu carta</div>
+  <button class="enter" onclick="revealBook()">Abrir nuestra historia ✧</button>
+ </div>
+</div>
+<div id="book">
+ <div class="topbar"><div class="brand">J & J · Nuestro libro</div><div class="menu"><a href="#inicio">INICIO</a><a href="#capitulo">HISTORIA</a><a href="#tiempo">TIEMPO</a><a href="#fotos">FOTOS</a><a href="#cancion">CANCIÓN</a><a href="#regalo">REGALO</a></div></div>
+ <div class="hero" id="inicio"><div class="smallcaps">Nuestro libro favorito</div><h2>Joselyn & Joshua</h2><p>Dos corazones, miles de recuerdos y una historia que todavía tiene mucho por escribir.</p><div class="date">13 · FEBRERO · 2023</div></div>
+ <section id="capitulo"><div class="chapter">Capítulo I · El comienzo</div><h2 class="title">Donde empezó nuestro para siempre</h2>
+ <p class="prose">El 13 de febrero de 2023 comenzó algo que jamás imaginé que llegaría a significar tanto para mí. Ese día empezó nuestra historia, una historia que con el tiempo se fue llenando de momentos, aprendizajes, sonrisas y recuerdos que hoy guardo con muchísimo cariño.<br><br>No sabía todo lo que viviríamos ni cuánto crecería este sentimiento. Hoy me alegra haber coincidido contigo. No quiero que nuestra historia sea perfecta; quiero que sea verdadera, que tenga comprensión, paciencia, respeto y muchas ganas de seguir eligiéndonos.<br><br>De todas las casualidades bonitas que me ha regalado la vida, conocerte es una de las que más agradezco.</p><div class="ornament">✧ ♡ ✧</div>
+ </section>
+ <section id="tiempo" style="background:#f1e4dc;max-width:none"><div style="max-width:850px;margin:auto"><div class="chapter">Capítulo II · Cada instante cuenta</div><h2 class="title">El tiempo que hemos compartido</h2><p class="prose">Desde aquel día, cada segundo se convirtió en una pequeña parte de nuestra historia.</p><div class="counter"><div><b id="days">—</b><span>Días</span></div><div><b id="hours">—</b><span>Horas</span></div><div><b id="minutes">—</b><span>Minutos</span></div><div><b id="seconds">—</b><span>Segundos</span></div></div></div></section>
+ <section><div class="chapter">Capítulo III · Nuestra línea del tiempo</div><h2 class="title">Páginas que ya escribimos</h2><div class="timeline"><div class="event"><strong>13 de febrero de 2023</strong><br>El primer día de nuestra historia.</div><div class="event"><strong>Todos esos pequeños momentos</strong><br>Las conversaciones, las sonrisas y los recuerdos que nos fueron acercando.</div><div class="event"><strong>Hoy</strong><br>Seguimos aprendiendo, creciendo y escribiendo nuevos capítulos.</div><div class="event"><strong>Lo que viene</strong><br>Muchos sueños, lugares y momentos que todavía nos esperan.</div></div></section>
+ <section id="fotos" style="background:#f1e4dc;max-width:none"><div style="max-width:850px;margin:auto"><div class="chapter">Capítulo IV · Nuestro álbum</div><h2 class="title">Instantes que quiero conservar</h2><p class="prose">Agrega aquí tus fotografías favoritas. Cada imagen será una página de este pequeño álbum nuestro.</p><label class="upload">Elige hasta 8 fotografías desde tu celular<br><input type="file" id="photos" accept="image/*" multiple></label><div class="gallery" id="gallery"><div class="polaroid"><img alt="Espacio para fotografía" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500'%3E%3Crect width='100%25' height='100%25' fill='%23eadbd5'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23641e32' font-size='23'%3ETu foto aquí%3C/text%3E%3C/svg%3E"><p>Un recuerdo para siempre</p></div><div class="polaroid"><img alt="Espacio para fotografía" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500'%3E%3Crect width='100%25' height='100%25' fill='%23eadbd5'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' fill='%23641e32' font-size='23'%3ETu foto aquí%3C/text%3E%3C/svg%3E"><p>De mis días favoritos</p></div></div></div></section>
+ <section id="cancion"><div class="chapter">Capítulo V · Nuestra melodía</div><h2 class="title">Si nuestra historia tuviera sonido...</h2><div class="songcard"><div class="vinyl"><span>♫</span></div><h3>Te regalo</h3><p>Carla Morrison</p><p>Hay canciones que se escuchan y otras que se sienten. Esta me recuerda a nosotros, a lo que hemos vivido y a todo lo que todavía deseo compartir contigo.</p><a class="pill" href="https://www.youtube.com/results?search_query=Carla+Morrison+Te+regalo" target="_blank" rel="noopener">REPRODUCIR NUESTRA CANCIÓN ♡</a></div></section>
+ <section id="regalo" style="background:#f1e4dc;max-width:none"><div style="max-width:850px;margin:auto"><div class="chapter">Capítulo VI · Una sorpresa</div><h2 class="title">Un regalo que viene del corazón</h2><div class="giftarea"><div class="gift" id="gift" onclick="openGift()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'){openGift()}">🎁</div><p class="giftmsg">Joshua, hay algo que quiero decirte...</p><button class="enter" style="background:#5a2339" onclick="openGift()">Desatar el lazo y abrir ♡</button><div class="letter" id="letter"><h3>Para ti, mi amor</h3><p>Quiero que sepas que mi deseo más bonito es pasar toda mi vida contigo. Quiero seguir construyendo nuestra historia, compartir nuevos momentos, cumplir sueños a tu lado y mirar hacia atrás algún día para sentirnos orgullosos de todo lo que hemos vivido.</p><p>No quiero que lo nuestro se quede solamente en recuerdos bonitos; quiero que sigamos creando muchos más. Te regalo mi amor, mis ilusiones y mis ganas de seguir escribiendo capítulos contigo.</p><p style="text-align:right;font-style:italic;color:#641e32">Con todo mi amor,<br><strong>Joselyn ❤️</strong></p></div></div></div></section>
+ <div class="final"><div class="smallcaps">Última página · Que no sea un final</div><h2>Y todavía nos queda<br>una historia por escribir...</h2><p>Quiero que algún día volvamos a abrir este libro y podamos mirar todo lo que vivimos desde aquel 13 de febrero de 2023. Que nos encuentre con nuevos sueños, más recuerdos y la alegría de haber seguido construyendo nuestra historia.</p><div style="font-size:32px;margin-top:25px">♡</div><p style="margin-top:12px">Te amo, Joshua.<br>— Joselyn</p></div>
+ <footer>J & J · DESDE EL 13.02.2023 · CON AMOR, SIEMPRE</footer>
+</div>
+<script>
+function revealBook(){document.getElementById('envelope').classList.add('open');setTimeout(()=>{document.getElementById('intro').style.display='none';document.getElementById('book').classList.add('visible');window.scrollTo(0,0)},550)}
+const start=new Date(2023,1,13,0,0,0);
+function tick(){let d=Math.max(0,new Date()-start),days=Math.floor(d/86400000);d%=86400000;let h=Math.floor(d/3600000);d%=3600000;let m=Math.floor(d/60000),s=Math.floor(d%60000/1000);document.getElementById('days').textContent=days.toLocaleString('es-MX');document.getElementById('hours').textContent=h;document.getElementById('minutes').textContent=m;document.getElementById('seconds').textContent=s}
+tick();setInterval(tick,1000);
+function openGift(){document.getElementById('gift').textContent='💝';document.getElementById('letter').classList.add('show');document.querySelector('.giftmsg').textContent='Esta carta es para ti, Joshua. Léela cuando quieras recordar cuánto te amo.'}
+document.getElementById('photos').addEventListener('change',e=>{let files=[...e.target.files].slice(0,8),g=document.getElementById('gallery');g.innerHTML='';files.forEach((f,i)=>{let r=new FileReader();r.onload=x=>{let card=document.createElement('div');card.className='polaroid';let im=document.createElement('img');im.src=x.target.result;im.alt='Recuerdo de Joselyn y Joshua';let p=document.createElement('p');p.textContent=['Un recuerdo para siempre','De mis días favoritos','Un instante nuestro','Tú y yo'][i%4];card.append(im,p);g.append(card)};r.readAsDataURL(f)})});
+</script></body></html>
